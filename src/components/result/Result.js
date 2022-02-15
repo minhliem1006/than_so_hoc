@@ -5,9 +5,9 @@ import ChiSo from './ChiSo'
 import { countDate, countMonth, countSMDD, countNTTT, countIndexTop, countTop,
      countYear, countMature, countMission, countAttitude, countInner, 
     countInteraction, countIntrospective,
-     countDay, countLife, countName } from '../count/count';
-import {arrayNoiTam,arrayNgaySinh,arrayDinhMenh,arrayThaiDo,arrayDuongDoi,arrayNoiCam} from '../data/text';
-const Result = ({info,obj}) => {
+     countDay, countLife} from '../count/count';
+import {arrayNoiTam,arrayNgaySinh,arrayDinhMenh,arrayThaiDo,arrayDuongDoi,arrayNoiCam,arrayNamCaNhan,arrayNgayCaNhan,arrayThangCaNhan,arrayTruongThanh,arrayTuongTac} from '../data/text';
+const Result = ({info}) => {
     let dayNow = new Date();
     let dateNow = dayNow.getDate();
     let monthNow = dayNow.getMonth() + 1;
@@ -43,7 +43,7 @@ const Result = ({info,obj}) => {
     return (
         <div className='result'>
             <div style={{marginBottom:"20px",fontSize:"12px"}}>
-                <p>Họ và tên : <span style={{marginLeft:"10px",fontWeight:"500"}}>{name}</span></p>
+                <p>Họ và tên : <span style={{marginLeft:"10px",fontWeight:"500"}}>{name.toUpperCase()}</span></p>
                 <p>Ngày sinh : <span style={{marginLeft:"10px",fontWeight:"500"}}>{birthDay}</span></p>
             </div>
             <div className='list'>
@@ -63,7 +63,17 @@ const Result = ({info,obj}) => {
             </div>
             <ChiSo name="Chỉ số nội cảm" data = {arrayNoiCam} value={obj1.soNoiCam} />
             <ChiSo name="Chỉ số nội tâm" data = {arrayNoiTam} value={obj1.soNoiTam}/>
-            <ChiSo name="Chỉ số tương tác"value={obj1.tuongTac}/>
+            <ChiSo name="Chỉ số thái độ" data = {arrayThaiDo} value={obj1.thaiDo}/>
+            <ChiSo name="Chỉ số tương tác" data = {arrayTuongTac} value={obj1.tuongTac}/>
+            <ChiSo name="Chỉ số trưởng thành" data = {arrayTruongThanh} value={obj1.soTruongThanh}/>
+            <ChiSo name="Chỉ số sứ mệnh" data = {arrayDinhMenh} value={obj2.suMenh}/>
+            <ChiSo name="Chỉ số đường đời" data = {arrayDuongDoi} value={obj2.duongDoi}/>
+            <ChiSo name="Chỉ số ngày sinh" data = {arrayNgaySinh} value={obj2.soNgaySinh}/>
+            <ChiSo name="Chỉ số ngày cá nhân" data = {arrayNgayCaNhan} value={obj3.ngayCaNhan}/>
+            <ChiSo name="Chỉ số tháng cá nhân" data = {arrayThangCaNhan} value={obj3.thangCaNhan}/>
+            <ChiSo name="Chỉ số năm cá nhân" data = {arrayNamCaNhan} value={obj3.namCaNhan}/>
+
+            {/* <ChiSo name="Chỉ số tương tác"value={obj1.tuongTac}/> */}
         </div>
     )
 }

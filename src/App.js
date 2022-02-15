@@ -6,27 +6,27 @@ import Home from './components/homepage/Home';
 import { useState } from 'react';
 function App() {
   const [show,setShow]= useState(false)
-  const [loading,setLoading]= useState(false)
+  // const [loading,setLoading]= useState(false)
   const [fullInfo,setFullInfo]= useState({});
   // console.log(show);
   const info = {
     name:"Hồ Minh Liêm",
     birthDay:" 10/06/1995",
   }
-  let body=null;
+  // let body=null;
     
-  if(show)
-  {  
-      body = <Result info={fullInfo}/>
-  }
-  else{
+  // if(show)
+  // {  
+  //     body = <Result info={fullInfo}/>
+  // }
+  // else{
    
-    body=<Home fullInfo={fullInfo} setFullInfo={setFullInfo} setShow={setShow}/>
-  }
+  //   body=<Home fullInfo={fullInfo} setFullInfo={setFullInfo} setShow={setShow}/>
+  // }
   return (
     <div className='App'>
       <Header/>
-      {body}
+      {show? <Result info={fullInfo}/>:<Home fullInfo={fullInfo} setFullInfo={setFullInfo} setShow={setShow}/>}
     </div>
   );
 }

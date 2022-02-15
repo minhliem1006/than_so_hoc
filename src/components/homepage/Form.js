@@ -73,7 +73,6 @@ const Form = ({ setShow,setFullInfo}) => {
   //
   const allFocus = [focus1, focus2, focus3, focus4, focus5, focus6,
     focus7, focus8, focus9, focus10, focus11, focus12, focus13, focus14, focus15, focus16, focus17, focus18]
-  
   const focusD1 = useRef();
   const focusD2 = useRef();
   const focusD3 = useRef();
@@ -97,15 +96,11 @@ const Form = ({ setShow,setFullInfo}) => {
 
   }
   const handChange = (e) => {
+    const index = parseInt(e.target.name) - 1;
     setFullName({
       ...fullName,
       [e.target.name]: e.target.value,
     })
-
-  }
-  const handKeyDown = (e) => {
-    // console.log(e.keyCode);
-    const index = parseInt(e.target.name) - 1;
     const keyCode = e.keyCode;
     if (keyCode === 8) {
       if (index < 18 && index >=0) {
@@ -134,6 +129,39 @@ const Form = ({ setShow,setFullInfo}) => {
 
       }
     }
+  }
+  const handKeyDown = (e) => {
+    // console.log(e.keyCode);
+    const index = parseInt(e.target.name) - 1;
+    const keyCode = e.keyCode;
+    if (keyCode === 8) {
+      if (index < 18 && index >=0) {
+        if(index===0)
+        {
+          allFocus[index].current.focus();
+
+        }
+        else
+        {
+          allFocus[index - 1].current.focus();
+
+        }
+      }
+    }
+    // } else {
+    //   if (index < 18 && index >=0) {
+    //     if(index === 17){
+    //       allFocus[index].current.focus();
+
+    //     }
+    //     else
+    //     {
+    //       allFocus[index+1].current.focus();
+
+    //     }
+
+    //   }
+    // }
   }
   const handChangeDay = (e)=>{
     setDayBirthDay({
