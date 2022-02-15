@@ -239,16 +239,16 @@ const Form = ({ setShow,setFullInfo}) => {
           <b >Nhập ngày/tháng/năm sinh</b>
         </label>
         <br />
-        <div style={{ display: "flex" }}>
+        <div className="formBody">
           <div>
             <input ref={focusD1} onKeyUp={handKeyDownD} onChange={handChangeDay}  className="inputValue" type="text" name="1" maxLength={1}/>
             <input ref={focusD2} onKeyUp={handKeyDownD} onChange={handChangeDay}  className="inputValue" type="text" name="2" maxLength={1} />
           </div>
-          <div style={{ marginLeft: "40px" }}>
+          <div className="formBody2">
             <input ref={focusD3} onKeyUp={handKeyDownD} onChange={handChangeDay}  className="inputValue" type="text" name="3" maxLength={1} />
             <input ref={focusD4} onKeyUp={handKeyDownD} onChange={handChangeDay}  className="inputValue" type="text" name="4" maxLength={1} />
           </div>
-          <div style={{ marginLeft: "40px" }}>
+          <div className="formBody2">
             <input ref={focusD5} onKeyUp={handKeyDownD} onChange={handChangeDay}  className="inputValue" type="text" name="5" maxLength={1} />
             <input ref={focusD6} onKeyUp={handKeyDownD} onChange={handChangeDay}  className="inputValue" type="text" name="6" maxLength={1} />
             <input ref={focusD7} onKeyUp={handKeyDownD} onChange={handChangeDay} className="inputValue" type="text" name="7" maxLength={1} />

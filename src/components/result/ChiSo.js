@@ -9,7 +9,7 @@ const ChiSo = ({name,value,data}) => {
     }
   })
   return (
-    <div style={{marginTop:"30px",fontSize:"15px"}}>
+    <div style={{marginTop:"30px",fontSize:"15px",backgroundColor:"#fae5e5",borderRadius:"5px",padding:"8px"}}>
         <h3 style={{margin:"10px 0"}}>{name}:<span style={{color:"#ad3718",marginLeft:"4px"}}>Số {value}</span> </h3>
         <p>{title}</p>
     </div>
