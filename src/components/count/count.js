@@ -167,8 +167,8 @@ function countMonth(d, m, y, m1) {
     return sumDigitsDate(m1 + y1)
 }
 
-function countDate(d, m, y, d1) {
-    let t1 = countYear(d, m, y)
+function countDate(d, m, y, m1,d1) {
+    let t1 = countMonth(d, m,y,m1)
     return sumDigitsDate(t1 + d1)
 }
 

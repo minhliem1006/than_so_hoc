@@ -11,6 +11,7 @@ const Result = ({info}) => {
     let dayNow = new Date();
     let dateNow = dayNow.getDate();
     let monthNow = dayNow.getMonth() + 1;
+    let yearNow = dayNow.getFullYear();
     console.log("thang hien tai la: ",monthNow);
     let name = info.nameSuccess;
     let birthDay = info.birthDaySuccess2;
@@ -34,9 +35,9 @@ const Result = ({info}) => {
         soNgaySinh:countDay(dayBirthDay),
     }
     const obj3 = {
-        namCaNhan:countYear(dayBirthDay,monthBirthDay,yearBirthDay),
-        thangCaNhan:countMonth(dayBirthDay,monthBirthDay,yearBirthDay,monthNow),
-        ngayCaNhan:countDate(dayBirthDay,monthBirthDay,yearBirthDay,dateNow),
+        namCaNhan:countYear(dayBirthDay,monthBirthDay,yearNow),
+        thangCaNhan:countMonth(dayBirthDay,monthBirthDay,yearNow,monthNow),
+        ngayCaNhan:countDate(dayBirthDay,monthBirthDay,yearNow,monthNow,dateNow),
     }
     const top = countTop(dayBirthDay,monthBirthDay,yearBirthDay);
     const indexTop = countIndexTop(dayBirthDay,monthBirthDay,yearBirthDay);

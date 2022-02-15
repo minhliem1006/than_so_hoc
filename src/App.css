@@ -267,3 +267,22 @@ html {
 .formBody {
   display: flex;
 }
+.imgContain{
+  margin:10px 0;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  align-items: center;
+}
+.imgCotain__{
+  display: flex;
+  justify-content: center;
+  width: 100px;
+}
+.imgHeader
+{
+  border: 1px solid #ff3333;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100px;
+}

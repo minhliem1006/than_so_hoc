@@ -1,13 +1,13 @@
-import React, { useState, useRef,} from 'react'
+import React, { useState, useRef, } from 'react'
 
-const Form = ({ setShow,setFullInfo}) => {
-
+const Form = ({ setShow, setFullInfo }) => {
+  const [showInfo,setShowInfo]= useState("")
   let nameSuccess = '';
   let birthDaySuccess = '';
   let birthDaySuccess2 = '';
-  const [dayBirthDay,setDayBirthDay] = useState({
-    '1':'',
-    '2':'',
+  const [dayBirthDay, setDayBirthDay] = useState({
+    '1': '',
+    '2': '',
     '3': '',
     '4': '',
     '5': '',
@@ -35,22 +35,20 @@ const Form = ({ setShow,setFullInfo}) => {
     '17': '',
     '18': '',
   });
-  Object.values(fullName).forEach( (str) =>{
-      return nameSuccess+=str;
+  Object.values(fullName).forEach((str) => {
+    return nameSuccess += str;
   });
-  Object.values(dayBirthDay).forEach( (str) =>{
-     birthDaySuccess+=str;
-    });
-  for(let i=0;i<birthDaySuccess.length;i++)
-  {
+  Object.values(dayBirthDay).forEach((str) => {
+    birthDaySuccess += str;
+  });
+  for (let i = 0; i < birthDaySuccess.length; i++) {
     // console.log(birthDaySuccess[i]);
-    birthDaySuccess2 = birthDaySuccess2+ birthDaySuccess[i];
-    if(i==1 || i==3)
-    {
+    birthDaySuccess2 = birthDaySuccess2 + birthDaySuccess[i];
+    if (i == 1 || i == 3) {
 
-      birthDaySuccess2+='/'  
+      birthDaySuccess2 += '/'
     }
-   
+
   }
   const focus1 = useRef();
   const focus2 = useRef();
@@ -81,128 +79,131 @@ const Form = ({ setShow,setFullInfo}) => {
   const focusD6 = useRef();
   const focusD7 = useRef();
   const focusD8 = useRef();
-  const allFocusD = [focusD1, focusD2, focusD3, focusD4, focusD5, focusD6,focusD7, focusD8]
-
+  const allFocusD = [focusD1, focusD2, focusD3, focusD4, focusD5, focusD6, focusD7, focusD8]
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(fullName);
-    setFullInfo({
-      nameSuccess,
-      birthDaySuccess2,
-    })
-    setShow(true);
-    // console.log(nameSuccess);
-    // console.log(birthDaySuccess2);
-
+    console.log(birthDaySuccess2);
+    if(nameSuccess!==''&& birthDaySuccess2.length == 10 )
+    {
+      setFullInfo({
+        nameSuccess,
+        birthDaySuccess2,
+      })
+      setShow(true);
+    }
+    else{
+      console.log("....vao")
+      setShowInfo("Vui lòng nhập đầy đủ thông tin")
+      setTimeout(() => {
+        setShowInfo("")
+      }, 3000);
+    }
   }
+
   const handChange = (e) => {
-    const index = parseInt(e.target.name) - 1;
     setFullName({
       ...fullName,
       [e.target.name]: e.target.value,
     })
-    const keyCode = e.keyCode;
-    if (keyCode === 8) {
-      if (index < 18 && index >=0) {
-        if(index===0)
-        {
-          allFocus[index].current.focus();
-
-        }
-        else
-        {
-          allFocus[index - 1].current.focus();
-
-        }
-      }
-    } else {
-      if (index < 18 && index >=0) {
-        if(index === 17){
-          allFocus[index].current.focus();
-
-        }
-        else
-        {
-          allFocus[index+1].current.focus();
-
-        }
-
-      }
-    }
   }
   const handKeyDown = (e) => {
-    // console.log(e.keyCode);
+    let keyCode = e.keyCode;
     const index = parseInt(e.target.name) - 1;
-    const keyCode = e.keyCode;
-    if (keyCode === 8) {
-      if (index < 18 && index >=0) {
-        if(index===0)
-        {
-          allFocus[index].current.focus();
+    if (keyCode === 8 ) {
+      if (index === 0) {
+        allFocus[index].current.focus();
+      }
+      else {
+        allFocus[index - 1].current.focus();
+      }
+    }else if(keyCode ===9){}
+     else {
 
-        }
-        else
-        {
-          allFocus[index - 1].current.focus();
+      if (index === 17) {
+        allFocus[index].current.focus();
 
-        }
+      }
+      else {
+        allFocus[index + 1].current.focus();
+
       }
     }
-    // } else {
-    //   if (index < 18 && index >=0) {
-    //     if(index === 17){
-    //       allFocus[index].current.focus();
 
-    //     }
-    //     else
-    //     {
-    //       allFocus[index+1].current.focus();
-
-    //     }
-
-    //   }
-    // }
   }
-  const handChangeDay = (e)=>{
+  // const handKeyDown = (e) => {
+  //   // console.log(e.keyCode);
+  //   const index = parseInt(e.target.name) - 1;
+  //   const keyCode = e.keyCode;
+  //   if (keyCode === 8) {
+  //     if (index < 18 && index >=0) {
+  //       if(index===0)
+  //       {
+  //         allFocus[index].current.focus();
+
+  //       }
+  //       else
+  //       {
+  //         allFocus[index - 1].current.focus();
+
+  //       }
+  //     }
+  //   }
+  //   // } else {
+  //   //   if (index < 18 && index >=0) {
+  //   //     if(index === 17){
+  //   //       allFocus[index].current.focus();
+
+  //   //     }
+  //   //     else
+  //   //     {
+  //   //       allFocus[index+1].current.focus();
+
+  //   //     }
+
+  //   //   }
+  //   // }
+  // }
+  const handChangeDay = (e) => {
     setDayBirthDay({
       ...dayBirthDay,
       [e.target.name]: e.target.value,
-    })  
+    })
   }
   const handKeyDownD = (e) => {
     // console.log(e.keyCode);
     const index = parseInt(e.target.name) - 1;
     const keyCode = e.keyCode;
     if (keyCode === 8) {
-      if (index < 8 && index >=0) {
-        if(index===0)
-        {
+      if (index < 8 && index >= 0) {
+        if (index === 0) {
           allFocusD[index].current.focus();
 
         }
-        else
-        {
+        else {
           allFocusD[index - 1].current.focus();
 
         }
       }
-    } else {
-      if (index < 8 && index >=0) {
-        if(index === 7){
+    }else if(keyCode ===9){}
+     else {
+      if (index < 8 && index >= 0) {
+        if (index === 7) {
           allFocusD[index].current.focus();
 
         }
-        else
-        {
-          allFocusD[index+1].current.focus();
+        else {
+          allFocusD[index + 1].current.focus();
 
         }
 
       }
     }
   }
+
   return (
     <div>
+      <h1 style={{color:"red",fontSize:"20px",marginBottom:"10px"}}>{showInfo}</h1>
       <form className="formInput">
 
         <label>
@@ -241,16 +242,16 @@ const Form = ({ setShow,setFullInfo}) => {
         <br />
         <div className="formBody">
           <div>
-            <input ref={focusD1} onKeyUp={handKeyDownD} onChange={handChangeDay}  className="inputValue" type="text" name="1" maxLength={1}/>
-            <input ref={focusD2} onKeyUp={handKeyDownD} onChange={handChangeDay}  className="inputValue" type="text" name="2" maxLength={1} />
+            <input ref={focusD1} onKeyUp={handKeyDownD} onChange={handChangeDay} className="inputValue" type="text" name="1" maxLength={1} />
+            <input ref={focusD2} onKeyUp={handKeyDownD} onChange={handChangeDay} className="inputValue" type="text" name="2" maxLength={1} />
           </div>
           <div className="formBody2">
-            <input ref={focusD3} onKeyUp={handKeyDownD} onChange={handChangeDay}  className="inputValue" type="text" name="3" maxLength={1} />
-            <input ref={focusD4} onKeyUp={handKeyDownD} onChange={handChangeDay}  className="inputValue" type="text" name="4" maxLength={1} />
+            <input ref={focusD3} onKeyUp={handKeyDownD} onChange={handChangeDay} className="inputValue" type="text" name="3" maxLength={1} />
+            <input ref={focusD4} onKeyUp={handKeyDownD} onChange={handChangeDay} className="inputValue" type="text" name="4" maxLength={1} />
           </div>
           <div className="formBody2">
-            <input ref={focusD5} onKeyUp={handKeyDownD} onChange={handChangeDay}  className="inputValue" type="text" name="5" maxLength={1} />
-            <input ref={focusD6} onKeyUp={handKeyDownD} onChange={handChangeDay}  className="inputValue" type="text" name="6" maxLength={1} />
+            <input ref={focusD5} onKeyUp={handKeyDownD} onChange={handChangeDay} className="inputValue" type="text" name="5" maxLength={1} />
+            <input ref={focusD6} onKeyUp={handKeyDownD} onChange={handChangeDay} className="inputValue" type="text" name="6" maxLength={1} />
             <input ref={focusD7} onKeyUp={handKeyDownD} onChange={handChangeDay} className="inputValue" type="text" name="7" maxLength={1} />
             <input ref={focusD8} onKeyUp={handKeyDownD} onChange={handChangeDay} className="inputValue" type="text" name="8" maxLength={1} />
           </div>
