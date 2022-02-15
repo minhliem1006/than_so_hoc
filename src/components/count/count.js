@@ -32,7 +32,7 @@ function countLife(d, m, y) {
 }
 
 function countAttitude(d, m) {
-    return sumDigits(d + m)
+    return sumDigitsDate(d + m)
 }
 
 function countInner(value) {
