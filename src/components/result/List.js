@@ -1,9 +1,9 @@
 import React from 'react'
 import Item from './Item'
-const List = ({obj}) => {
+const List = ({obj,title}) => {
   return (
    <div className='list'>
-        <h1 className='title_list'> Thấu hiểu và phát triển bản thân</h1>
+        <h1 className='title_list'> {title}</h1>
         <ul className='list-item'>
           {
             Object.keys(obj).map((key,index)=>{

@@ -131,7 +131,7 @@ function countYear(d, m, y) {
     let day = sumDigitsDate(d)
     let month = sumDigitsDate(m)
     let year = sumDigitsDate(y)
-    return sumDigitsDate(day, month, year)
+    return sumDigitsDate(day + month +  year)
 }
 
 function countTop(d, m, y) {

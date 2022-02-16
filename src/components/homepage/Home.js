@@ -1,5 +1,4 @@
 import Form from './Form';
-import NewForm from './Form2';
 const Home = ({setShow,setFullInfo,fullInfo}) => {
   return (
     <div className='body-home'> 

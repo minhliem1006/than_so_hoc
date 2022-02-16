@@ -12,7 +12,7 @@ const Result = ({info}) => {
     let dateNow = dayNow.getDate();
     let monthNow = dayNow.getMonth() + 1;
     let yearNow = dayNow.getFullYear();
-    console.log("thang hien tai la: ",monthNow);
+    // console.log("thang hien tai la: ",monthNow);
     let name = info.nameSuccess;
     let birthDay = info.birthDaySuccess2;
     let day = birthDay.split('/');
@@ -44,13 +44,13 @@ const Result = ({info}) => {
     return (
         <div className='result'>
             <div style={{marginBottom:"20px",fontSize:"12px"}}>
-                <p>Họ và tên : <span style={{marginLeft:"10px",fontWeight:"500"}}>{name.toUpperCase()}</span></p>
-                <p>Ngày sinh : <span style={{marginLeft:"10px",fontWeight:"500"}}>{birthDay}</span></p>
+                <p style={{fontSize:"16px"}}>Họ và tên : <span style={{marginLeft:"10px",fontWeight:"500",}}>{name.toUpperCase()}</span></p>
+                <p style={{fontSize:"16px"}}>Ngày sinh : <span style={{marginLeft:"10px",fontWeight:"500"}}>{birthDay}</span></p>
             </div>
             <div className='list'>
-                <List obj={obj1}/>
-                <List obj={obj2}/>
-                <List obj={obj3}/>
+                <List title ="Thấu hiểu và phát triển bản thân" obj={obj1}/>
+                <List title ="Nhiệm vụ xã hội và hành trình hoàn thành sứ mệnh" obj={obj2}/>
+                <List title ="Chỉ số mở rộng và dự đoán" obj={obj3}/>
             </div>
             <div className='pyramid'>
                 <h1 className='title_list'>Số chặng đường đời</h1>
