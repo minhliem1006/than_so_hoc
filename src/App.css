@@ -185,13 +185,14 @@ html {
 
 .inputValue {
   border: 1px solid black;
-  width: 50px;
+  width: 100px;
   height: 20px;
   padding: 12px;
   outline: none;
   margin-left: 6px;
   font-size: 12px;
   margin-bottom: 20px;
+  
 }
 
 .inputValue2 {
